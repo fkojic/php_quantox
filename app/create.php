@@ -1,4 +1,13 @@
-
+<?php
+    if(isset($_POST["first_name"]) && isset($_POST["last_name"])) {
+        $registerQuery = "INSERT INTO students(first_name, last_name)
+                           VALUES ('".$_POST["first_name"]."','".$_POST["last_name"]."')";
+        $result = mysqli_query($conn, $registerQuery);
+        if($result) {
+            header("Location: index.php");
+        }
+    }
+?>
 <div class="pricing-table pricing-table-highlighted">
     <div class="pricing-table-space"></div>
     <button type="button" class="btn btn-primary" id="showCreate">Add Student</button>
@@ -11,7 +20,7 @@
         </div>
         <div class="col-md-4">
             <div class="pricing-table-space"></div>
-            <form action="../../app/create.php" method="POST" class="pricing-table-features form-horizontal form-bordered form-validate">
+            <form action="index.php" method="POST" class="pricing-table-features form-horizontal form-bordered form-validate">
                 <div class="form-group">
                     <input type="text" class="form-controll width100" id="first_name" name="first_name" />
                 </div>
@@ -34,8 +43,6 @@
     <div class="pricing-table-space"></div>
     <table class="table">
         <?php
-        include("connection.php");
-
         $getStudentsQuery = "SELECT * FROM students";
 
         $results = mysqli_query($conn, $getStudentsQuery);
@@ -70,12 +77,16 @@
     </table>
     <div class="pricing-table-space"></div>
 </div>
-<?php
-    if(isset($_POST["first_name"]) && isset($_POST["last_name"])) {
-        $registerQuery = "INSERT INTO students(first_name, last_name)
-            VALUES ('".$_POST["first_name"]."','".$_POST["last_name"]."')";
-        $result = mysqli_query($conn, $registerQuery);
-        if($result) {
-            header("Location: index.php");
-        }
-    }
+
+<div class="pricing-table pricing-table-highlighted" >
+    <div class="row">
+        <div class="col-md-3">
+            <a href="app/csm.php" class="btn btn-dark btn-radius btn-brd grd1 effect-1 width100" target="_blank"> CSM</a>
+        </div>
+        <div class="col-md-3">
+            <a href="app/csmb.php" class="btn btn-dark btn-radius btn-brd grd1 effect-1 width100" target="_blank"> CSMB</a>
+        </div>
+        <div class="col-md-6">
+        </div>
+    </div>
+</div>

@@ -34,7 +34,6 @@
 </style>
 </head>
 <body class="app_version" data-spy="scroll" data-target="#navbarApp" data-offset="98">
-
 <!-- LOADER -->
 <!-- <div id="preloader">
     <img class="preloader" src="../images/loaders/loader-app.gif" alt="">
@@ -63,7 +62,7 @@
 <header class="header header_style_01">
     <nav class="navbar header-nav navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="index.php"><img src="resource/images/logos/logo-app.png" alt="image"></a>
+            <a class="navbar-brand" href="index.php"><h1>Quantox Filip</h1></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarApp" aria-controls="navbarApp" aria-expanded="false" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
@@ -71,7 +70,7 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarApp">
                 <ul class="navbar-nav">
-                    <li><a class="nav-link active" href="#home">Home</a></li>
+                    <li><a class="nav-link active" href="index.php">Home</a></li>
                 </ul>
             </div>
         </div>
@@ -90,6 +89,8 @@
                             <div class="col-md-12">
 
                                 <?php
+                                require_once("app/connection.php");
+
                                 if(isset($_GET["student"])) {
                                     include("app/student.php");
                                 } else {
@@ -107,11 +108,7 @@
 </div><!-- end section -->
 
 <section class="section nopad cac text-center">
-    <a href="#"><h3>Interesting our awesome web design services? Just drop an email to us and get quote for free!</h3></a>
 </section>
-
-<footer class="footer">
-</footer><!-- end footer -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
